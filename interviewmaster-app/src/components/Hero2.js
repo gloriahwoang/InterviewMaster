@@ -1,6 +1,8 @@
 import "./Hero2Styles.css";
 import calendar from "../assets/calendar.jpg"
 import time from "../assets/time.jpg"
+import React from 'react'
+
 
 const Hero2 = () => {
     return (
