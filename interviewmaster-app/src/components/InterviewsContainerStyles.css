@@ -1,0 +1,40 @@
+.Container{ 
+    margin-top: 6rem;
+    margin-left: 6rem;
+    justify-content: center;
+    margin-right: 6rem;
+    margin-bottom: 6rem;
+
+}
+
+.Container h1{
+    font-weight: 700;
+    text-align: left;
+}
+
+.Container ul{
+    display: flex;
+    list-style: none;
+    margin-top: 2.5rem;
+    color: rgb(24, 160, 251);
+    font-weight: bolder;
+    margin-left: -10px;
+}
+
+.Container li{
+    position: relative;
+    text-align: center;
+    padding-left: 62px;
+}
+
+.addbutton{
+    font-size: 2rem;
+    font-weight: bolder;
+    background-color: #b3e58c;
+    color: white;
+    border-color: #bcf094;
+    border-radius: 2.5rem;
+    box-shadow: none;
+    margin-top: 20px;
+    padding:0px 9px;
+}
