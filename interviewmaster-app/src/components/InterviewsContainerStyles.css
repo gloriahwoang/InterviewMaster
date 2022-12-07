@@ -18,7 +18,9 @@
     margin-top: 2.5rem;
     color: rgb(24, 160, 251);
     font-weight: bolder;
-    margin-left: -10px;
+    justify-content: space-around;
+    margin-left: 30px;
+    margin-right: 60px;
 }
 
 .Container li{
