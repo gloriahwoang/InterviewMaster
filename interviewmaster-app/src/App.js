@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import './App.css';
 
@@ -57,14 +57,14 @@ class App extends Component {
           <Router>
             <div>
               <Navbar auth={authProps} />
-              <Routes>
+              <Switch>
                 <Route exact path="/" render={(props) => <Home {...props} auth={authProps} />} />
                 <Route exact path="/myinterviews" render={(props) => <Interviews {...props} auth={authProps} />} />
                 <Route exact path="/login" render={(props) => <Login {...props} auth={authProps} />} />
                 <Route exact path="/signup" render={(props) => <Signup {...props} auth={authProps} />} />
                 <Route exact path="/sync" render={(props) => <SyncingEmail {...props} auth={authProps} />} />
                 <Route exact path="/welcome" render={(props) => <Welcome {...props} auth={authProps} />} />
-              </Routes>
+              </Switch>
               <Footer />
             </div>
           </Router>

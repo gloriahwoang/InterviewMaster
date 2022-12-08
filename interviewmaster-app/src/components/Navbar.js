@@ -24,7 +24,7 @@ export default class Navbar extends Component {
         </h1>
 
         <div className="menu-icons">
-          <i classNAme="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
 
         </div>
 

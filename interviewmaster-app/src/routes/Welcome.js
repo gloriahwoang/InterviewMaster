@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import React from 'react'
 import WelcomeContainer from "../components/WelcomeContainer";
 
@@ -8,9 +6,7 @@ import WelcomeContainer from "../components/WelcomeContainer";
 function Welcome(){
     return(
         <>
-        <Navbar/>
         <WelcomeContainer/>
-        <Footer/>
         </>
     )
 }

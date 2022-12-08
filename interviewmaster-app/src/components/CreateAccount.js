@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import FormErrors from "./FormErrors";
 import Validate from "./FormValidation";
 import { Auth } from "aws-amplify";
+import { Route , withRouter } from 'react-router-dom';
 
 class CreateAccount extends Component {
     state = {
@@ -85,7 +86,7 @@ class CreateAccount extends Component {
                 <div className="auth-form-container">
                 <FormErrors className="error" formerrors={this.state.errors} />
                 <form className="create-form" onSubmit={this.handleSubmit}>
-                    <label for='username'>Username</label>
+                    <label>Username</label>
                     <input 
                         type='username'
                         placeholder='John Doe' 
@@ -94,7 +95,7 @@ class CreateAccount extends Component {
                         value={this.state.username}
                         onChange={this.onInputChange}
                     />
-                    <label for='email'>Email</label>
+                    <label>Email</label>
                     <input 
                         type='email'
                         placeholder='youremail@gmail.com'
@@ -103,7 +104,7 @@ class CreateAccount extends Component {
                         value={this.state.email}
                         onChange={this.onInputChange}
                     />
-                    <label for='password'>Password</label>
+                    <label>Password</label>
                     <input
                     type='password'
                     placeholder='**********'
@@ -111,7 +112,7 @@ class CreateAccount extends Component {
                     value={this.state.password}
                     onChange={this.onInputChange}
                     />
-                    <label for='coonfirmpassword'>Confirm Password</label>
+                    <label>Confirm Password</label>
                     <input
                     type='password'
                     placeholder='**********'

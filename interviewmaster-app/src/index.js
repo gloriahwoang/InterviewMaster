@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import React from 'react'
 import {Amplify} from 'aws-amplify';
 import config from './config';
@@ -13,10 +13,4 @@ Amplify.configure({
     }
 });
 
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.render(<App />, document.getElementById('root'));
