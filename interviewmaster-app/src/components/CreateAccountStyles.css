@@ -19,6 +19,12 @@ input {
     border: 1px solid rgb(139, 139, 139);
 }
 
+.error{
+    color:red;
+    padding: 0.5rem;
+    font-size: smaller;
+}
+
 .create {
     margin-top: 80px;
     margin-bottom: 100px;

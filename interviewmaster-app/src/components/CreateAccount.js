@@ -50,8 +50,9 @@ class CreateAccount extends Component {
             email: email
             }
         });
-        this.props.history.push("/welcome");
         console.log(signUpResponse);
+        this.props.history.push("/welcome");
+        
         } catch (error) {
         let err = null;
         !error.message ? err = { "message": error } : err = error;
@@ -82,6 +83,7 @@ class CreateAccount extends Component {
                 
                 
                 <div className="auth-form-container">
+                <FormErrors className="error" formerrors={this.state.errors} />
                 <form className="create-form" onSubmit={this.handleSubmit}>
                     <label for='username'>Username</label>
                     <input 

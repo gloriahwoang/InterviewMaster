@@ -42,3 +42,9 @@
     background-color: white;
     color:rgb(24, 160, 251);
 }
+
+.error{
+    color:red;
+    padding: 0.5rem;
+    font-size: smaller;
+}
