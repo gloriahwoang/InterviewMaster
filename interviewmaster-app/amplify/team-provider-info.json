@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-interviewmasterapp-dev-30050-authRole",
+      "UnauthRoleArn": "arn:aws:iam::653496211370:role/amplify-interviewmasterapp-dev-30050-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::653496211370:role/amplify-interviewmasterapp-dev-30050-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-interviewmasterapp-dev-30050-deployment",
+      "UnauthRoleName": "amplify-interviewmasterapp-dev-30050-unauthRole",
+      "StackName": "amplify-interviewmasterapp-dev-30050",
+      "StackId": "arn:aws:cloudformation:us-east-1:653496211370:stack/amplify-interviewmasterapp-dev-30050/707f39c0-76ce-11ed-9024-0a02c33c3d8b",
+      "AmplifyAppId": "d3ghbi6ujrtz35"
+    }
+  }
+}
