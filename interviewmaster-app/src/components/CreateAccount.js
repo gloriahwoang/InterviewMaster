@@ -54,7 +54,7 @@ class CreateAccount extends Component {
         });
         console.log(signUpResponse);
       
-        this.props.history.push("");
+        this.props.history.push("/Welcome");
         
         } catch (error) {
         let err = null;
