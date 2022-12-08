@@ -6,6 +6,7 @@ import Validate from "./FormValidation";
 import { Auth } from "aws-amplify";
 import { Route , withRouter } from 'react-router-dom';
 
+
 class CreateAccount extends Component {
     state = {
         username: "",
@@ -52,7 +53,8 @@ class CreateAccount extends Component {
             }
         });
         console.log(signUpResponse);
-        this.props.history.push("/welcome");
+      
+        this.props.history.push("");
         
         } catch (error) {
         let err = null;
@@ -130,4 +132,4 @@ class CreateAccount extends Component {
         );
       };
 }
-    export default CreateAccount;
+    export default withRouter(CreateAccount);
