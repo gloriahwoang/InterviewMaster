@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Auth } from "aws-amplify";
 import FormErrors from "./FormErrors";
 import Validate from "./FormValidation";
+import { Route , withRouter } from 'react-router-dom';
 
 class LoginContainer extends Component {
     state = {
@@ -73,7 +74,7 @@ class LoginContainer extends Component {
                 <FormErrors className="error" formerrors={this.state.errors} />
 
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <label for='username'>Username</label>
+                    <label htmlFor='username'>Username</label>
                     <input
                         type='text'
                         placeholder='Enter username or email'
@@ -83,7 +84,7 @@ class LoginContainer extends Component {
                         onChange={this.onInputChange}
                     />
 
-                    <label for='password'>Password</label>
+                    <label htmlFor='password'>Password</label>
                     <input
                         type='password'
                         placeholder='**********'
@@ -102,4 +103,4 @@ class LoginContainer extends Component {
     }
   }
   
-  export default LoginContainer;
+  export default withRouter(LoginContainer);

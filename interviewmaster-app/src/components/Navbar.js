@@ -23,11 +23,6 @@ export default class Navbar extends Component {
           InterviewMaster
         </h1>
 
-        <div className="menu-icons">
-          <i className="fa-solid fa-bars"></i>
-
-        </div>
-
         <ul className='nav-menu'>
           {MenuItems.map((item, index) =>{
             return(
