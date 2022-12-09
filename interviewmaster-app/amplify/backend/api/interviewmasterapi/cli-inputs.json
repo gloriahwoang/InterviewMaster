@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/myinterviews/{userid}": {
+      "name": "/myinterviews/{userid}",
+      "lambdaFunction": "interviewmasterappe675e7ad",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
