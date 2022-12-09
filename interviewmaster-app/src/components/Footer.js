@@ -8,7 +8,7 @@ const Footer = () =>{
         <div className='footer'>
             <div className='top'>
                 <li>
-                    <Link className='footer-nav' to={"./myinterviews"}>
+                    <Link className='footer-nav' to={"./"}>
                         My Interviews
                     </Link>
                 </li>
