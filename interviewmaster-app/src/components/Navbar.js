@@ -1,5 +1,4 @@
 import "./NavbarStyles.css";
-import {MenuItems} from "./MenuItems";
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
@@ -23,20 +22,22 @@ export default class Navbar extends Component {
           InterviewMaster
         </h1>
 
-        <ul className='nav-menu'>
-          {MenuItems.map((item, index) =>{
-            return(
-              <li key={index}>
-                <Link className={item.cName} to={item.url}>
-                  {item.title}
+          <ul className='nav-menu'>
+          {this.props.auth.isAuthenticated && (
+              <div>
+                <Link to="/home">
+                  <button className='home'>Home</button>
                 </Link>
-              </li>
-            )
-          })}
+
+                <Link to="/signup">
+                  <button className='myinterviews'>My Interviews</button>
+                </Link>
+            </div>
+            )}
 
           {this.props.auth.isAuthenticated && this.props.auth.user && (
-            <p>
-              Hello {this.props.auth.user.username}
+            <p className='username'>
+              Hello,  {this.props.auth.user.username}
             </p>
           )}
 

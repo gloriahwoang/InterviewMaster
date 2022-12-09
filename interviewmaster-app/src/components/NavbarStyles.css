@@ -25,21 +25,6 @@
     align-items: center;
 }
 
-.nav-links{
-    text-decoration: none;
-    color: rgb(72, 72, 72);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 0.7rem 1rem;
-}
-
-.nav-links:hover{
-    background-color:rgb(139, 139, 139);
-    color:#fff;
-    border-radius:4px;
-    transition: all 0.2s ease-in-out;
-}
-
 .nav-links-login{
     display: none;
 }
@@ -86,10 +71,6 @@
     color:rgb(24, 160, 251);
 }
 
-.buttons{
-    margin-left:1em;
-}
-
 
 .nav-logout{
     color: rgb(24, 160, 251);
@@ -102,5 +83,38 @@
     transition: all 0.2s ease-in-out;
     box-shadow: none;
     margin-right: 40px;
-    margin-left: -10px;
+    margin-left: 20px;
+}
+
+.nav-logout:hover{
+    background-color: rgb(24, 160, 251);
+    color:white;
+}
+
+.username{
+    font-size: 1em;
+    font-weight: bold;
+}
+
+
+.home, .myinterviews{
+    color: rgb(72, 72, 72);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.7rem 2rem;
+    background-color:white;
+    border: none;
+    border-color:none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+.home:hover, .myinterviews:hover {
+    background-color: rgb(166, 166, 166);
+    color:white;
+    transition: all 0.2s ease-in-out;
+    border-radius:4px;
 }
