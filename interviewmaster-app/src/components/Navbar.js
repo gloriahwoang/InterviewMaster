@@ -31,7 +31,7 @@ export default class Navbar extends Component {
                   <button className='home'>Home</button>
                 </Link>
 
-                <Link to="/signup">
+                <Link to="/myinterviews">
                   <button className='myinterviews'>My Interviews</button>
                 </Link>
             </div>
