@@ -19,13 +19,15 @@ export default class Navbar extends Component {
     return(
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
-          InterviewMaster
+          <Link to="/">
+            InterviewMaster
+          </Link>
         </h1>
 
           <ul className='nav-menu'>
           {this.props.auth.isAuthenticated && (
               <div>
-                <Link to="/home">
+                <Link to="/">
                   <button className='home'>Home</button>
                 </Link>
 
