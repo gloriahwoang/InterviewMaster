@@ -7,7 +7,7 @@
 .first{
     display: flex;
     align-items:center;
-    justify-content:end;
+    justify-content:flex-end;
     margin-top: 12rem;
 }
 
@@ -47,7 +47,7 @@
 .second{
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     margin-top: 200px;
     margin-bottom: 100px;
 }
