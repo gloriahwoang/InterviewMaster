@@ -3,59 +3,59 @@ import React, { Component } from 'react';
 import { Auth } from "aws-amplify";
 import FormErrors from "./FormErrors";
 import Validate from "./FormValidation";
-import { Route , withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoginContainer extends Component {
     state = {
-      username: "",
-      password: "",
-      errors: {
-        cognito: null,
-        blankfield: false
-      }
-    };
-  
-    clearErrorState = () => {
-      this.setState({
+        username: "",
+        password: "",
         errors: {
           cognito: null,
           blankfield: false
         }
-      });
-    };
-  
-    handleSubmit = async event => {
-      event.preventDefault();
-  
-      // Form validation
-      this.clearErrorState();
-      const error = Validate(event, this.state);
-      if (error) {
-        this.setState({
-          errors: { ...this.state.errors, ...error }
-        });
-      }
-  
-      
-      // AWS Cognito integration here
-      try {
-        const user = await Auth.signIn(this.state.username, this.state.password);
-        console.log(user);
-        this.props.auth.setAuthStatus(true);
-        this.props.auth.setUser(user);
-        this.props.history.push("/");
-      }catch(error) {
-        let err = null;
-        !error.message ? err = { "message": error } : err = error;
+      };
+    
+      clearErrorState = () => {
         this.setState({
           errors: {
-            ...this.state.errors,
-            cognito: err
+            cognito: null,
+            blankfield: false
           }
         });
-      }
-    };
-  
+      };
+    
+      handleSubmit = async event => {
+        event.preventDefault();
+    
+        // Form validation
+        this.clearErrorState();
+        const error = Validate(event, this.state);
+        if (error) {
+          this.setState({
+            errors: { ...this.state.errors, ...error }
+          });
+        }
+    
+        
+        // AWS Cognito integration here
+        try {
+          const user = await Auth.signIn(this.state.username, this.state.password);
+          console.log(user);
+          this.props.history.push("/");
+          window.location.reload();
+          
+        } catch(error) {
+          let err = null;
+          !error.message ? err = { "message": error } : err = error;
+          this.setState({
+            errors: {
+              ...this.state.errors,
+              cognito: err
+            }
+          });
+          }
+      };
+    
     onInputChange = event => {
       this.setState({
         [event.target.id]: event.target.value

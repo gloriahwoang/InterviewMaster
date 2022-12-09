@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom";
+import { BrowserRouter } from 'react-router-dom';
 import React from 'react'
 import {Amplify} from 'aws-amplify';
 import config from './config';
@@ -13,4 +14,9 @@ Amplify.configure({
     }
 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter >
+      <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+  );

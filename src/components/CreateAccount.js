@@ -1,10 +1,9 @@
 import "./CreateAccountStyles.css";
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import FormErrors from "./FormErrors";
 import Validate from "./FormValidation";
 import { Auth } from "aws-amplify";
-import { Route , withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 class CreateAccount extends Component {
