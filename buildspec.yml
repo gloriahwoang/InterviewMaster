@@ -1,12 +1,6 @@
 version: 0.2
 phases:
   install:
-    commands:
-      # install Node 18.12.0 & install npm 8.19.2
-      - echo installing node...
-      - curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&\
-      - apt install -y nodejs
-      - echo node successfully installed...
     pre_build:
       commands:
         # install dependencies
