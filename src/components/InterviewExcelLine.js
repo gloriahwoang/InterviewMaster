@@ -14,7 +14,6 @@ class InterviewExcelLine extends Component{
                     <input className='company'
                         id='company'
                         type='text'
-                        value=''
                         class=''
                         onChange=''
                         placeholder='Company'
