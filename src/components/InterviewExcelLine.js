@@ -8,6 +8,13 @@ import { useState } from "react";
 
 class InterviewExcelLine extends Component{
     render(){
+
+        function handleChange(){
+            console.log("working input");
+        }
+
+
+
       return(
             <div className='InterviewInformation'>
                 <form>
@@ -15,7 +22,7 @@ class InterviewExcelLine extends Component{
                         id='company'
                         type='text'
                         class=''
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='Company'
                     />
 
@@ -24,9 +31,9 @@ class InterviewExcelLine extends Component{
                         type='text'
                         value=''
                         class=''
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='Position'
-                    />
+                    /> 
 
 
                     <select className="Status" >
@@ -52,7 +59,7 @@ class InterviewExcelLine extends Component{
                         type='date'
                         value=''
                         class=''
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='Date'
                     />
 
@@ -61,7 +68,7 @@ class InterviewExcelLine extends Component{
                         type='text'
                         value=''
                         class=''
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='Location'
                     />
 
@@ -70,7 +77,7 @@ class InterviewExcelLine extends Component{
                         type='text'
                         name = 'Referrer'
                         class=''
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='Referrer'
                     />
 
@@ -78,7 +85,7 @@ class InterviewExcelLine extends Component{
                         type="text"
                         id="LinkedIn"
                         name="LinkedIn"
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='LinkedIn'
                     />
 
@@ -87,7 +94,7 @@ class InterviewExcelLine extends Component{
                         type='text'
                         name="Notes"
                         class=''
-                        onChange=''
+                        onChange={handleChange}
                         placeholder='Notes'
                     />
               </form>
