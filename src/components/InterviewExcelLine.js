@@ -67,27 +67,26 @@ class InterviewExcelLine extends Component{
                     />
 
                     <input
-                        id=''
+                        id='Referrer'
                         type='text'
-                        value=''
+                        name = 'Referrer'
                         class=''
                         onChange=''
                         placeholder='Referrer'
                     />
 
                     <input
-                        id=''
-                        type='text'
-                        value=''
-                        class=''
+                        type="text"
+                        id="LinkedIn"
+                        name="LinkedIn"
                         onChange=''
                         placeholder='LinkedIn'
                     />
 
                     <textarea
-                        id=''
+                        id='Notes'
                         type='text'
-                        value=''
+                        name="Notes"
                         class=''
                         onChange=''
                         placeholder='Notes'
