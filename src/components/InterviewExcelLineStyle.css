@@ -62,3 +62,15 @@
     color:#1F7183;
     font-weight:900;
 }
+
+#save-button{
+  width: 10.5%;
+  height: 2.5rem;
+  padding: 3px 7px;
+  margin: 0px 7px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: 8px;
+  align-content: space-around;
+  margin: 1rem 0rem 0rem 1rem;
+}

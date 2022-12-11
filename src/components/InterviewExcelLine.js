@@ -50,7 +50,7 @@ class InterviewExcelLine extends Component{
 
                     <input
                         id=''
-                        type='text'
+                        type='date'
                         value=''
                         class=''
                         onChange=''
@@ -92,7 +92,8 @@ class InterviewExcelLine extends Component{
                         onChange=''
                         placeholder='Notes'
                     />
-                </form>
+              </form>
+              <button id = "save-button">Save</button>
             </div>
 
         )
