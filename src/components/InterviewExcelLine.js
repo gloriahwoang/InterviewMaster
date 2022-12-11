@@ -3,7 +3,7 @@ import React from 'react'
 import { Component } from 'react';
 import { useState } from "react";
 
-const apigClient = apigClientFactory.newClient();
+// const apigClient = apigClientFactory.newClient();
 
 
 class InterviewExcelLine extends Component{

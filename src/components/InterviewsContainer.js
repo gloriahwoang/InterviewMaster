@@ -2,7 +2,7 @@ import "./InterviewsContainerStyles.css";
 import InterviewExcelLine from "../components/InterviewExcelLine";
 import React from 'react'
 
-const apigClient = apigClientFactory.newClient();
+// const apigClient = apigClientFactory.newClient();
 
 const InterviewsContainer = () => {
     return (
