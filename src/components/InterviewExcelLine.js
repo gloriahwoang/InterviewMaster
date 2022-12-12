@@ -14,18 +14,32 @@ class InterviewExcelLine extends Component{
       referrer:[],
      };
   }
-  saveInput = (e) => {
-    this.setState({ input: e.target.value });
+  saveReferrerInput = (e) => {
+    this.setState({ inputReferrer: e.target.value });
+    console.log(e.target.value);
   };
+  saveLinkedInInput = (e) => {
+    this.setState({ inputLinkedIn: e.target.value });
+    console.log(e.target.value);
+  };
+  saveNotesInput = (e) => {
+    this.setState({ inputNotes: e.target.value });
+    console.log(e.target.value);
+  };
+
+
   addNewItem = () => {
-    let { linkedin,notes,referrer, input } = this.state;
-    linkedin.push(input);
-    notes.push(input);
-    referrer.push(input);
-    this.setState({ linkedin: linkedin,
-      notes:notes,
-      referrer:referrer
+    let { linkedin,notes,referrer, inputNotes, inputLinkedIn, inputReferrer } = this.state;
+    console.log(inputNotes, inputLinkedIn, inputReferrer)
+    linkedin.push(inputLinkedIn);
+    notes.push(inputNotes);
+    referrer.push(inputReferrer);
+    this.setState({
+        linkedin: linkedin,
+        notes:notes,
+        referrer:referrer
      });
+     console.log(this)
   };
 
   render(){
@@ -33,8 +47,6 @@ class InterviewExcelLine extends Component{
       function handleChange(){
           console.log("working input");
       }
-
-
 
     return(
           <div className='InterviewInformation'>
@@ -93,7 +105,7 @@ class InterviewExcelLine extends Component{
                       id='Referrer'
                       type='text'
                       name = 'Referrer'
-                      onChange={this.saveInput}
+                      onChange={this.saveReferrerInput}
                       placeholder='Referrer'
                   />
 
@@ -101,14 +113,14 @@ class InterviewExcelLine extends Component{
                       type="text"
                       id="LinkedIn"
                       name="LinkedIn"
-                      onChange={this.saveInput}
+                      onChange={this.saveLinkedInInput}
                       placeholder='LinkedIn'
                   />
 
                   <textarea
                       id='Notes'
                       type='text'
-                      onChange={this.saveInput}
+                      onChange={this.saveNotesInput}
                       placeholder='Notes'
                   />
             </form>
