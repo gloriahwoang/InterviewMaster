@@ -41,7 +41,7 @@ class LoginContainer extends Component {
     try {
       const user = await Auth.signIn(this.state.username, this.state.password);
       console.log(user);
-      this.props.history.push("/");
+      this.props.history.push("/myinterviews");
       window.location.reload();
       
     } catch(error) {
