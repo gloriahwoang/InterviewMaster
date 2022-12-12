@@ -7,25 +7,14 @@ import { useState } from "react";
 
 
 class InterviewExcelLine extends Component{
-  constructor(props) {
-    super(props);
-    this.state = { linkedin: [],
-      notes: [],
-      referrer:[],
-     };
-  }
+  state = {
+    notes: "",
+    linkedin: "",
+    referrer:"",
+  };
+
   saveInput = (e) => {
     this.setState({ input: e.target.value });
-  };
-  addNewItem = () => {
-    let { linkedin,notes,referrer, input } = this.state;
-    linkedin.push(input);
-    notes.push(input);
-    referrer.push(input);
-    this.setState({ linkedin: linkedin,
-      notes:notes,
-      referrer:referrer
-     });
   };
 
   render(){
@@ -112,7 +101,7 @@ class InterviewExcelLine extends Component{
                       placeholder='Notes'
                   />
             </form>
-            <button onClick={this.addNewItem}>Save</button>
+            <button id = "save-button">Save</button>
           </div>
 
       )
