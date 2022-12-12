@@ -6,6 +6,9 @@ import { Auth } from "aws-amplify";
 import { withRouter } from 'react-router-dom';
 
 
+// import apigClinent.js
+
+
 class CreateAccount extends Component {
     state = {
         username: "",
@@ -51,8 +54,17 @@ class CreateAccount extends Component {
             email: email
             }
         });
-        console.log(signUpResponse);
-      
+        
+        // email = this.state.email and pass the email to apigateway
+
+        // setupPut(email, [], [])
+
+        var params = {
+          "x-amz-meta-emailAddress": this.state.email
+        }
+        // console.log(this.state.email)
+          // apigClient.uploadPhotoItemPut(params, {}, {})
+        
         this.props.history.push("/Welcome");
         
         } catch (error) {
