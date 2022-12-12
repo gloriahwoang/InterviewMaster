@@ -2,9 +2,10 @@ import "./NavbarStyles.css";
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
+import { withRouter } from 'react-router-dom';
 
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   handleLogOut = async event => {
     event.preventDefault();
     try {
@@ -12,7 +13,6 @@ export default class Navbar extends Component {
       this.props.auth.setAuthStatus(false);
       this.props.auth.setUser(null);
       this.props.history.push("/");
-      window.location.reload();
     }catch(error) {
       console.log(error.message);
     }
@@ -72,3 +72,4 @@ export default class Navbar extends Component {
     )
   }
 }
+export default withRouter(Navbar);

@@ -21,7 +21,6 @@ class InterviewExcelLine extends Component{
                     <input className='company'
                         id='company'
                         type='text'
-                        class=''
                         onChange={handleChange}
                         placeholder='Company'
                     />
@@ -30,7 +29,6 @@ class InterviewExcelLine extends Component{
                         id='position'
                         type='text'
                         value=''
-                        class=''
                         onChange={handleChange}
                         placeholder='Position'
                     /> 
@@ -58,7 +56,6 @@ class InterviewExcelLine extends Component{
                         id=''
                         type='date'
                         value=''
-                        class=''
                         onChange={handleChange}
                         placeholder='Date'
                     />
@@ -67,7 +64,6 @@ class InterviewExcelLine extends Component{
                         id=''
                         type='text'
                         value=''
-                        class=''
                         onChange={handleChange}
                         placeholder='Location'
                     />
@@ -76,7 +72,6 @@ class InterviewExcelLine extends Component{
                         id='Referrer'
                         type='text'
                         name = 'Referrer'
-                        class=''
                         onChange={handleChange}
                         placeholder='Referrer'
                     />
@@ -93,7 +88,6 @@ class InterviewExcelLine extends Component{
                         id='Notes'
                         type='text'
                         name="Notes"
-                        class=''
                         onChange={handleChange}
                         placeholder='Notes'
                     />
