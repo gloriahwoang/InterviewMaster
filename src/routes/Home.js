@@ -13,7 +13,7 @@ function Home(){
          title="How organized are your interviews?"
          text="Master and organize your interviews starting today!"
          buttonText="Join Today"
-         url="/signup"
+         url="/alreadyloggedin"
          btnClass="show"
          />
         <Hero2/>

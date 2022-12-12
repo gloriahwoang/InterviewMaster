@@ -11,6 +11,7 @@ import SyncingEmail from './routes/SyncingEmail';
 import Welcome from './routes/Welcome';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AlreadyLoggedin from './components/AlreadyLoggedin';
 
 class App extends Component {
 
@@ -64,6 +65,7 @@ class App extends Component {
                 <Route exact path="/signup" render={(props) => <Signup {...props} auth={authProps} />} />
                 <Route exact path="/sync" render={(props) => <SyncingEmail {...props} auth={authProps} />} />
                 <Route exact path="/welcome" render={(props) => <Welcome {...props} auth={authProps} />} />
+                <Route exact path="/alreadyloggedin" render={(props) => <AlreadyLoggedin {...props} auth={authProps} />} />
               </Switch>
               <Footer />
             </div>
