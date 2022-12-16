@@ -57,19 +57,11 @@ class CreateAccount extends Component {
         })
         ;
         
-        // email = this.state.email and pass the email to apigateway
-
-        // setupPut(email, [], [])
-
-        //var params = {
-        //  "x-amz-meta-emailAddress": this.state.email
-        //}
-        // console.log(this.state.email)
-          // apigClient.uploadPhotoItemPut(params, {}, {})
         axios.put(
           "https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/setup",
           {'x-amz-meta-emailAddress': this.state.email}
           );
+          
         this.props.history.push("/Welcome");
         
         } catch (error) {
