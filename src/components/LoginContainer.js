@@ -40,9 +40,10 @@ class LoginContainer extends Component {
     // AWS Cognito integration here
     try {
       const user = await Auth.signIn(this.state.username, this.state.password);
-      console.log(user);
+      this.props.auth.setAuthStatus(true);
+      this.props.auth.setUser(user);
       this.props.history.push("/myinterviews");
-      window.location.reload();
+      // window.location.reload();
       
     } catch(error) {
       let err = null;
