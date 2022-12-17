@@ -1,18 +1,17 @@
 import "./InterviewExcelLineStyle.css";
 import React from 'react'
 import { Component } from 'react';
+import { Auth } from 'aws-amplify';
+import axios from 'axios';
 // import { useState } from "react";
 //import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway";
 
 // const apigClient = apigClientFactory.newClient();
-import axios from 'axios';
 
-// axios.put(
-//   "https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/setup",
-//   {test: 'jh4476@columbia.edu'}
-//   )
+
 
 class InterviewExcelLine extends Component{
+  
   constructor(props) {
     super(props);
     this.state = { linkedin: [],
@@ -22,15 +21,12 @@ class InterviewExcelLine extends Component{
   }
   saveReferrerInput = (e) => {
     this.setState({ inputReferrer: e.target.value });
-    console.log(e.target.value);
   };
   saveLinkedInInput = (e) => {
     this.setState({ inputLinkedIn: e.target.value });
-    console.log(e.target.value);
   };
   saveNotesInput = (e) => {
     this.setState({ inputNotes: e.target.value });
-    console.log(e.target.value);
   };
 
 
@@ -45,10 +41,27 @@ class InterviewExcelLine extends Component{
         notes:notes,
         referrer:referrer
      });
-     console.log(this)
+    //  console.log(this)
   };
 
   render(){
+
+    if (this.props.auth.setAuthStatus) {
+      const email = this.props.auth.user.attributes.email;
+      
+      const resoonseee = axios.get(
+        'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
+        {
+          headers: {
+            'x-amz-meta-emailAddress': email,
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
+        )
+      
+      console.log('lemme have a look shit',resoonseee)
+    }
+    // console.log('InterviewExcel',this);
 
       function handleChange(){
           console.log("working input");
