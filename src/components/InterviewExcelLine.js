@@ -52,9 +52,8 @@ class InterviewExcelLine extends Component{
       const resoonseee = axios.get(
         'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
         {
-          headers: {
-            'x-amz-meta-emailAddress': email,
-            'Access-Control-Allow-Origin': '*'
+          params: {
+            emailAddress: email
           }
         }
         )
