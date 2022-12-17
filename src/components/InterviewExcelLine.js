@@ -17,6 +17,10 @@ class InterviewExcelLine extends Component{
     this.state = { linkedin: [],
       notes: [],
       referrer:[],
+      cmp: [],
+      pos:[],
+      date:[],
+      link:[],
      };
   }
   saveReferrerInput = (e) => {
@@ -28,7 +32,7 @@ class InterviewExcelLine extends Component{
   saveNotesInput = (e) => {
     this.setState({ inputNotes: e.target.value });
   };
-
+  
 
   addNewItem = () => {
     let { linkedin,notes,referrer, inputNotes, inputLinkedIn, inputReferrer } = this.state;
@@ -49,21 +53,29 @@ class InterviewExcelLine extends Component{
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
       
-      const resoonseee = axios.get(
+      axios.get(
         'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
         {
           params: {
             emailAddress: email
           }
         }
-        )
-      
-      console.log('lemme have a look shit',resoonseee)
+        ).then((response) => {
+          // console.log(response.data.cmp)
+          this.setState({ cmp: response.data.cmp });
+          this.setState({ pos: response.data.pos });
+          this.setState({ date: response.data.date });
+          this.setState({ link: response.data.link });
+          // console.log(this.state.cmp)
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-    // console.log('InterviewExcel',this);
-
+    // console.log(this.state.cmp)
+    // console.log(this.state)
       function handleChange(){
-          console.log("working input");
+          console.log(this);
       }
 
     return(
@@ -72,15 +84,16 @@ class InterviewExcelLine extends Component{
                   <input className='company'
                       id='company'
                       type='text'
-                      onChange={handleChange}
+                      value = {this.state.cmp}
+                      // onChange={resoonseee.data.cmp}
+                      onChange={this.handleChange}
                       placeholder='Company'
                   />
-
                   <input className='position'
                       id='position'
                       type='text'
-                      value=''
-                      onChange={handleChange}
+                      value = {this.state.pos}
+                      // onChange={handleChange}
                       placeholder='Position'
                   /> 
 
@@ -105,8 +118,8 @@ class InterviewExcelLine extends Component{
 
                   <input
                       id=''
-                      type='date'
-                      value=''
+                      type='text'
+                      value = {this.state.date}
                       onChange={handleChange}
                       placeholder='Date'
                   />
@@ -114,7 +127,7 @@ class InterviewExcelLine extends Component{
                   <input
                       id=''
                       type='text'
-                      value=''
+                      value = {this.state.link}
                       onChange={handleChange}
                       placeholder='Location'
                   />

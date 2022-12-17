@@ -34,10 +34,6 @@ class InterviewsContainer extends React.Component {
         {this.state.inputList.map((input, index) => (
           <InterviewExcelLine auth={this.props.auth} key={index} />
         ))}
-        <InterviewExcelLine auth={this.props.auth} />
-        {this.state.inputList.map((input, index) => (
-          <InterviewExcelLine auth={this.props.auth} key={index} />
-        ))}
         <button onClick={this.handleclick} className="addbutton">
           +
         </button>
