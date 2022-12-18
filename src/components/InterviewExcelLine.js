@@ -61,17 +61,17 @@ class InterviewExcelLine extends Component{
           params: {
             'emailAddress': email
           }
-        }
-        
-        ).then((response) => {
-          this.setState({ cmp: response.data.cmp });
-          this.setState({ pos: response.data.pos });
-          this.setState({ date: response.data.date });
-          this.setState({ link: response.data.link });
+          // headers: {'Access-Control-Allow-Origin': '*'},
         })
-        .catch((error) => {
-          console.error(error);
-        });
+      // console.log(response)
+      // this.setState({cmp: response.data.cmp})
+      
+        // .then((response) => {
+        //   this.setState({ cmp: response.data.cmp });
+        //   this.setState({ pos: response.data.pos });
+        //   this.setState({ date: response.data.date });
+        //   this.setState({ link: response.data.link });
+        // })
     }    
 
     return(
@@ -81,14 +81,14 @@ class InterviewExcelLine extends Component{
                       id='company'
                       type='text'
                       value = {this.state.cmp}
-                      onChange={this.handleChange}
+                      // onChange={this.handleChange}
                       placeholder='Company'
                   />
                   <input className='position'
                       id='position'
                       type='text'
                       value = {this.state.pos}
-                      onChange={this.handleChange}
+                      // onChange={this.handleChange}
                       placeholder='Position'
                   /> 
 
@@ -115,7 +115,7 @@ class InterviewExcelLine extends Component{
                       id=''
                       type='text'
                       value = {this.state.date}
-                      onChange={this.handleChange}
+                      // onChange={this.handleChange}
                       placeholder='Date'
                   />
 
@@ -123,7 +123,7 @@ class InterviewExcelLine extends Component{
                       id=''
                       type='text'
                       value = {this.state.link}
-                      onChange={this.handleChange}
+                      // onChange={this.handleChange}
                       placeholder='Location'
                   />
 
