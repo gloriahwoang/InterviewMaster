@@ -23,27 +23,27 @@ class InterviewExcelLine extends Component{
   };
   
   
-  update(property) {
-    return (e) =>
-      this.setState({
-         [property]: e.target.value,
-      });
-  };
+  // update(property) {
+  //   return (e) =>
+  //     this.setState({
+  //        [property]: e.target.value,
+  //     });
+  // };
 
-  handleSave(e) {
-    e.preventDefault();
-    // let excel = {
-    //   company: this.state.company,
-    //   position: this.state.position,
-    //   status: this.state.status,
-    //   referral: this.state.referral,
-    //   date: this.state.date,
-    //   location: this.state.location,
-    //   referrer: this.state.referrer,
-    //   linkedin: this.state.linkedin,
-    //   notes: this.state.notes
-    // };
-  }
+  // handleSave(e) {
+  //   e.preventDefault();
+  //   // let excel = {
+  //   //   company: this.state.company,
+  //   //   position: this.state.position,
+  //   //   status: this.state.status,
+  //   //   referral: this.state.referral,
+  //   //   date: this.state.date,
+  //   //   location: this.state.location,
+  //   //   referrer: this.state.referrer,
+  //   //   linkedin: this.state.linkedin,
+  //   //   notes: this.state.notes
+  //   // };
+  // }
 
 
   render(){
