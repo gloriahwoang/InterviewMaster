@@ -42,6 +42,11 @@ class InterviewExcelLine extends Component{
      });
     //  console.log(this)
   };
+  handleChange =(e) => {
+    let newState = this.state;
+    newState.cmp = e.target.value;
+    this.setState(newState);
+  }
 
   render(){
 
@@ -66,6 +71,7 @@ class InterviewExcelLine extends Component{
         //   this.setState({ link: response.data.link });
         // })
     }    
+    
 
     return(
           <div className='InterviewInformation'>
@@ -114,7 +120,7 @@ class InterviewExcelLine extends Component{
                       id=''
                       type='text'
                       value = {this.state.date}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       placeholder='Date'
                   />
 
@@ -122,7 +128,7 @@ class InterviewExcelLine extends Component{
                       id=''
                       type='text'
                       value = {this.state.link}
-                      onChange={handleChange}
+                      // onChange={handleChange}
                       placeholder='Location'
                   />
 
