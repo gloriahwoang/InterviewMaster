@@ -3,22 +3,50 @@ import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import axios from 'axios';
+import { response } from "express";
 
 class InterviewExcelLine extends Component{
   
   constructor(props) {
     super(props);
-    this.state = {
-      cmp: [],
-      pos: [],
-      status: [],
-      referral: [],
-      date: [],
-      location: [],
-      referrer: [],
-      link: [],
-      notes: [],
-    };
+    // this.state = {
+    //   cmp: [],
+    //   pos: [],
+    //   status: [],
+    //   referral: [],
+    //   date: [],
+    //   location: [],
+    //   referrer: [],
+    //   link: [],
+    //   notes: [],
+    // };
+    if (this.props.auth.setAuthStatus) {
+      const email = this.props.auth.user.attributes.email;
+      console.log(this)
+      axios.get(
+        'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
+        {
+          params: {
+            'q': email
+          }
+          // headers: {'Access-Control-Allow-Origin': '*'},
+        }) 
+        .then((response) => {
+          this.state = {
+            cmp: response.data.cmp,
+            pos: response.data.pos,
+            status: response.data.status,
+            referral: response.data.referral,
+            date: response.data.date,
+            location: response.data.location,
+            referrer: response.data.referrer,
+            link: response.data.link,
+            notes: response.data.notes,
+            time: response.data.insertedAtTimestamp,
+            email: response.data.useremail,
+          }
+        })
+    }    
     this.handleSave = this.handleSave.bind(this);
   };
   
@@ -32,45 +60,32 @@ class InterviewExcelLine extends Component{
 
   handleSave(e) {
     e.preventDefault();
-    // let excel = {
-    //   company: this.state.company,
-    //   position: this.state.position,
-    //   status: this.state.status,
-    //   referral: this.state.referral,
-    //   date: this.state.date,
-    //   location: this.state.location,
-    //   referrer: this.state.referrer,
-    //   linkedin: this.state.linkedin,
-    //   notes: this.state.notes
-    // };
+    if (this.props.auth.setAuthStatus) {
+      console.log("handlesave,this", this)
+      axios.put(
+        'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/update',
+        {
+          params: {
+            data:{
+              cmp: this.state.cmp,
+              pos: this.state.pos,
+              status: this.state.status,
+              referral: this.state.referral,
+              date: this.state.date,
+              location: this.state.location,
+              referrer: this.state.referrer,
+              link: this.state.link,
+              notes: this.state.notes,
+              insertedAtTimestamp: this.state.time,
+              useremail: this.state.email,
+            }
+          }
+        })
+    }    
   }
 
 
   render(){
-
-    if (this.props.auth.setAuthStatus) {
-      const email = this.props.auth.user.attributes.email;
-      console.log(this)
-      axios.get(
-        'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
-        {
-          params: {
-            'emailAddress': email
-          }
-          // headers: {'Access-Control-Allow-Origin': '*'},
-        })
-      // console.log(response)
-      // this.setState({cmp: response.data.cmp})
-      
-        // .then((response) => {
-        //   this.setState({ cmp: response.data.cmp });
-        //   this.setState({ pos: response.data.pos });
-        //   this.setState({ date: response.data.date });
-        //   this.setState({ link: response.data.link });
-        // })
-    }    
-    
-
     return(
           <div className='InterviewInformation'>
               <form>
