@@ -3,27 +3,21 @@ import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import axios from 'axios';
-import Select from 'react-select';
-// import { useState } from "react";
-//import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway";
-
-// const apigClient = apigClientFactory.newClient();
-
-
 
 class InterviewExcelLine extends Component{
   
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
-      position: "",
-      status: "",
-      date: "",
-      location: "",
-      referrer: "",
-      linkedin: "",
-      notes: ""
+      cmp: [],
+      pos: [],
+      status: [],
+      referral: [],
+      date: [],
+      location: [],
+      referrer: [],
+      link: [],
+      notes: [],
     };
     this.handleSave = this.handleSave.bind(this);
   };
@@ -51,114 +45,143 @@ class InterviewExcelLine extends Component{
     // };
   }
 
+
   render(){
 
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
-      
-      const resoonseee = axios.get(
+      console.log(this)
+      axios.get(
         'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
         {
-          headers: {
-            'x-amz-meta-emailAddress': email,
-            'Access-Control-Allow-Origin': '*'
+          params: {
+            'emailAddress': email
           }
-        }
-      )
-
-      console.log('lemme have a look shit',resoonseee)
-    }
-    // console.log('InterviewExcel',this);
-
-      // function handleChange(){
-      //     console.log("working input");
-      // }
+          // headers: {'Access-Control-Allow-Origin': '*'},
+        })
+      // console.log(response)
+      // this.setState({cmp: response.data.cmp})
+      
+        // .then((response) => {
+        //   this.setState({ cmp: response.data.cmp });
+        //   this.setState({ pos: response.data.pos });
+        //   this.setState({ date: response.data.date });
+        //   this.setState({ link: response.data.link });
+        // })
+    }    
     
-    console.log("this.props", this.props);
-    console.log("this.state", this.state);
-    return (
-      <div className='InterviewInformation'>
-        <form>
-          <input className='company'
-            id='company'
-            type='text'
-            value={this.state.company}
-            onChange={this.update("company")}
-            placeholder='Company'
-            />
 
+    return(
+          <div className='InterviewInformation'>
+              <form>
+                  <input className='company'
+                      id='company'
+                      type='text'
+                      value={this.state.cmp}
+                      onChange={this.update("cmp")}
+                      placeholder='Company'
+                  />
+
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Position</label>
+                    <input className='position'
+                        id='position'
+                        type='text'
+                        value={this.state.pos}
+                        onChange={this.update("pos")}
+                        placeholder='Position'
+                    />
+                  </div>
+
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Status</label>
+                    <select className="Status" value={this.state.status} onChange={this.update("status")}>
+                        <option value='Submitted'>Submitted</option>
+                        <option value='PhoneCall'>Phone Call</option>
+                        <option value='1stRound'>1st Round</option>
+                        <option value='2ndRound'>2nd Round</option>
+                        <option value='3rdRound'>3rd Round</option>
+                        <option value='4thRound'>4th Round</option>
+                        <option value='Offered'>Offered</option>
+                        <option value='Rejected'>Rejected</option>
+                    </select>
+                  </div>
+
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Referral</label>
+                    <select className="Referral" value={this.state.referral} onChange={this.update("referral")}>
+                        <option value='None'>None</option>
+                        <option value='CoffeeChat'>Coffee Chat</option>
+                        <option value='ReachedOut'>Reached Out</option>
+                        <option value='Refferal'>Referral</option>
+                    </select>
+                  </div>
                   
-          <input className='position'
-                id='position'
-                type='text'
-                value={this.state.position}
-                onChange={this.update("position")}
-                placeholder='Position'
-            /> 
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Date</label>
+                    <input className='Date'
+                        id=''
+                        type='date'
+                        value={this.state.date}
+                        onChange={this.update("date")}
+                        placeholder='Date'
+                    />
+                  </div>
 
 
-          <select className="Status"  value={this.state.status} onChange={this.update("status")}>
-              <option value='Submitted'>Submitted</option>
-              <option value='PhoneCall'>Phone Call</option>
-              <option value='1stRound'>1st Round</option>
-              <option value='2ndRound'>2nd Round</option>
-              <option value='3rdRound'>3rd Round</option>
-              <option value='4thRound'>4th Round</option>
-              <option value='Offered'>Offered</option>
-              <option value='Rejected'>Rejected</option>
-          </select>
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Location</label>
+                    <input className='location'
+                        id=''
+                        type='text'
+                        value={this.state.location}
+                        onChange={this.update("location")}
+                        placeholder='Location'
+                    />
+                  </div>
 
-        
-          <select className="Referral" value={this.state.referral} onChange={this.update("referral")}>
-              <option value='None'>None</option>
-              <option value='CoffeeChat'>Coffee Chat</option>
-              <option value='ReachedOut'>Reached Out</option>
-              <option value='Refferal'>Referral</option>
-          </select>
 
-          <input
-              id=''
-              type='date'
-              value={this.state.date}
-              onChange={this.update("date")}
-              placeholder='Date'
-          />
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Referrer</label>
+                    <input className='referrer'
+                        id='Referrer'
+                        type='text'
+                        value={this.state.referrer}
+                        onChange={this.update("referrer")}
+                        placeholder='Referrer'
+                    />
+                  </div>
 
-          <input
-              id=''
-              type='text'
-              value={this.state.location}
-              onChange={this.update("location")}
-              placeholder='Location'
-          />
+                  <div className='labelinput'>
+                    <label htmlFor='label'>LinkedIn</label>
+                    <input className='Linkedin'
+                        type="text"
+                        id="LinkedIn"
+                        value={this.state.link}
+                        onChange={this.update("link")}
+                        placeholder='LinkedIn'
+                    />
+                  </div>
 
-          <input
-              id='Referrer'
-              type='text'
-              value={this.state.referrer}
-              onChange={this.update("referrer")}
-              placeholder='Referrer'
-          />
+                  <div className='labelinput'>
+                    <label htmlFor='label'>Notes</label>
+                    <textarea className='notes'
+                        id='Notes'
+                        type='text'
+                        value={this.state.notes}
+                        onChange={this.update("notes")}
+                        placeholder='Notes'
+                    />
+                  </div>
+                    
+              </form>
+              <button onClick={this.handleSave}>Save</button>
+              
+            </div>
+            
+          
 
-          <input
-              type="text"
-              id="LinkedIn"
-              value={this.state.linkedin}
-              onChange={this.update("linkedin")}
-              placeholder='LinkedIn'
-          />
-
-          <textarea
-              id='Notes'
-              type='text'
-              value={this.state.notes}
-              onChange={this.update("notes")}
-              placeholder='Notes'
-          />
-        </form>
-        <button onClick={this.handleSave}>Save</button>
-      </div>
-    )
+      )
   }
   }
   

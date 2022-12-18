@@ -1,49 +1,66 @@
 
+
 .InterviewInformation{
-    width: 100%;
-    background-color: #F5F5F5;
-    border-radius: 1rem;
-    align-content: space-around;
-    margin: 1rem 1rem 1rem 1rem;
+  margin: 12px;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 31%;
+  height: 500px;
+  overflow:none;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border-radius: 1rem;
 }
 
-.InterviewInformation input{
-    width: 10.5%;
-    height: 2.5rem;
-    padding: 3px 7px;
-    margin: 0px 7px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    border-radius: 8px;
-    align-content: space-around;
-    margin: 1rem 0rem 0rem 1rem;
-  }
+.company{
+  font-size: large;
+  font-weight: 900;
+  width: 80%;
+  height: 3rem;
+  padding: 7px 7px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  align-content: space-around;
+  margin: 2rem 0rem 1.2rem 0rem;
+}
 
+.labelinput{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-.InterviewInformation select{
-    width: 10.5%;
-    height: 2.5rem;
-    padding: 3px 7px;
-    margin: 0px 7px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    align-content: space-around;
-    border-radius: 8px;
-    margin: 1rem 0rem 0rem 1rem;
-  }
+.InterviewInformation label{
+  font-size: small;
+  font-weight: 900;
+}
 
-.InterviewInformation textarea{
-    position:relative;
-    width:90%;
-    box-sizing:content-box;
-    height:auto;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    align-content: space-around;
-    margin: 1rem 0rem 1rem 0rem;
-  }
+.position, .Status, .Referral, .Date, .location, .referrer, .Linkedin{
+  width: 95%;
+  height: 2rem;
+  padding: 7px 7px;
+  margin: 3px 6px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: small;
+  font-weight: 900;
+}
+
+.notes{
+  width: 60%;
+  height: 4rem;
+  padding: 7px 7px;
+  margin: 5px 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: small;
+  font-weight: 900;
+}
 
 #position{
     background-color: #d4ecc0;
@@ -58,19 +75,22 @@
 }
 
 #company{
-    background-color: #cbf0f3;
+    background-color:#F5F5F5;
     color:#1F7183;
     font-weight:900;
 }
 
-#save-button{
-  width: 10.5%;
-  height: 2.5rem;
-  padding: 3px 7px;
-  margin: 0px 7px;
+.InterviewInformation button{
+  font-size: small;
+  width: 6rem;
+  height: 2rem;
+  padding: 7px 7px;
+  margin: 3px 6px;
   border: 1px solid #ddd;
   box-sizing: border-box;
   border-radius: 8px;
-  align-content: space-around;
-  margin: 1rem 0rem 0rem 1rem;
+  font-size: small;
+  font-weight: 900;
+  margin-top: 0.6rem;
 }
+
