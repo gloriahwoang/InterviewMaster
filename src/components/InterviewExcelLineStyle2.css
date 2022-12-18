@@ -1,0 +1,76 @@
+
+.InterviewInformation{
+    width: 100%;
+    background-color: #F5F5F5;
+    border-radius: 1rem;
+    align-content: space-around;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.InterviewInformation input{
+    width: 10.5%;
+    height: 2.5rem;
+    padding: 3px 7px;
+    margin: 0px 7px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 8px;
+    align-content: space-around;
+    margin: 1rem 0rem 0rem 1rem;
+  }
+
+
+.InterviewInformation select{
+    width: 10.5%;
+    height: 2.5rem;
+    padding: 3px 7px;
+    margin: 0px 7px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    align-content: space-around;
+    border-radius: 8px;
+    margin: 1rem 0rem 0rem 1rem;
+  }
+
+.InterviewInformation textarea{
+    position:relative;
+    width:90%;
+    box-sizing:content-box;
+    height:auto;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    align-content: space-around;
+    margin: 1rem 0rem 1rem 0rem;
+  }
+
+#position{
+    background-color: #d4ecc0;
+    color:#4B831F;
+    font-weight:900;
+}
+
+.Status{
+    background-color: #fff0bc;
+    color:#8E7638;
+    font-weight:900;
+}
+
+#company{
+    background-color: #cbf0f3;
+    color:#1F7183;
+    font-weight:900;
+}
+
+#save-button{
+  width: 10.5%;
+  height: 2.5rem;
+  padding: 3px 7px;
+  margin: 0px 7px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: 8px;
+  align-content: space-around;
+  margin: 1rem 0rem 0rem 1rem;
+}

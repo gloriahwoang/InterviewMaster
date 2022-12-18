@@ -1,5 +1,5 @@
 .Container{ 
-    margin-top: 6rem;
+    margin-top: 3rem;
     margin-left: 6rem;
     justify-content: center;
     margin-right: 6rem;
@@ -7,12 +7,13 @@
 
 }
 
+
 .Container h1{
     font-weight: 700;
     text-align: left;
 }
 
-.Container ul{
+/* .Container ul{
     display: flex;
     list-style: none;
     margin-top: 2.5rem;
@@ -27,9 +28,10 @@
     position: relative;
     text-align: center;
     padding-left: 62px;
-}
+} */
 
 .addbutton{
+    margin-top: 60%;
     font-size: 2rem;
     font-weight: bolder;
     background-color: #b3e58c;
@@ -37,6 +39,29 @@
     border-color: #bcf094;
     border-radius: 2.5rem;
     box-shadow: none;
-    margin-top: 20px;
     padding:0px 9px;
+  }
+
+  
+.addbuttoncontainer{
+  margin: 12px;
+  width: 31%;
+  height: 500px;
+  overflow:none;
+  background-color: #fff;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border-radius: 1rem;
 }
+
+.container2{
+    background-color: #F5F5F5;
+    width: 100%;
+    display: flex;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 2rem;
+  }

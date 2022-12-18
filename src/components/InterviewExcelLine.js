@@ -48,6 +48,13 @@ class InterviewExcelLine extends Component{
     //  console.log(this)
   };
 
+  handleclick = () => {
+    const inputList = this.state.inputList;
+    this.setState({
+      inputList: inputList.concat(<InterviewExcelLine auth={this.props.auth} />)
+    });
+  };
+
   render(){
 
     if (this.props.auth.setAuthStatus) {
@@ -79,84 +86,113 @@ class InterviewExcelLine extends Component{
       }
 
     return(
-          <div className='InterviewInformation'>
-              <form>
-                  <input className='company'
-                      id='company'
-                      type='text'
-                      value = {this.state.cmp}
-                      // onChange={resoonseee.data.cmp}
-                      onChange={this.handleChange}
-                      placeholder='Company'
-                  />
-                  <input className='position'
-                      id='position'
-                      type='text'
-                      value = {this.state.pos}
-                      // onChange={handleChange}
-                      placeholder='Position'
-                  /> 
+          
+            <div className='InterviewInformation'>
+                <form>
+                    <input className='company'
+                        id='company'
+                        type='text'
+                        value = {this.state.cmp}
+                        // onChange={resoonseee.data.cmp}
+                        onChange={this.handleChange}
+                        placeholder='Company'
+                    />
 
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Position</label>
+                      <input className='position'
+                          id='position'
+                          type='text'
+                          value = {this.state.pos}
+                          // onChange={handleChange}
+                          placeholder='Position'
+                      />
+                    </div>
 
-                  <select className="Status" >
-                      <option value='Submitted'>Submitted</option>
-                      <option value='PhoneCall'>Phone Call</option>
-                      <option value='1stRound'>1st Round</option>
-                      <option value='2ndRound'>2nd Round</option>
-                      <option value='3rdRound'>3rd Round</option>
-                      <option value='4thRound'>4th Round</option>
-                      <option value='Offered'>Offered</option>
-                      <option value='Rejected'>Rejected</option>
-                  </select>
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Status</label>
+                      <select className="Status" >
+                          <option value='Submitted'>Submitted</option>
+                          <option value='PhoneCall'>Phone Call</option>
+                          <option value='1stRound'>1st Round</option>
+                          <option value='2ndRound'>2nd Round</option>
+                          <option value='3rdRound'>3rd Round</option>
+                          <option value='4thRound'>4th Round</option>
+                          <option value='Offered'>Offered</option>
+                          <option value='Rejected'>Rejected</option>
+                      </select>
+                    </div>
 
-                  <select className="Referral">
-                      <option value='None'>None</option>
-                      <option value='CoffeeChat'>Coffee Chat</option>
-                      <option value='ReachedOut'>Reached Out</option>
-                      <option value='Refferal'>Referral</option>
-                  </select>
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Referral</label>
+                      <select className="Referral">
+                          <option value='None'>None</option>
+                          <option value='CoffeeChat'>Coffee Chat</option>
+                          <option value='ReachedOut'>Reached Out</option>
+                          <option value='Refferal'>Referral</option>
+                      </select>
+                    </div>
 
-                  <input
-                      id=''
-                      type='text'
-                      value = {this.state.date}
-                      onChange={handleChange}
-                      placeholder='Date'
-                  />
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Date</label>
+                      <input className='Date'
+                          id=''
+                          type='text'
+                          value = {this.state.date}
+                          onChange={handleChange}
+                          placeholder='Date'
+                      />
+                    </div>
 
-                  <input
-                      id=''
-                      type='text'
-                      value = {this.state.link}
-                      onChange={handleChange}
-                      placeholder='Location'
-                  />
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Location</label>
+                      <input className='location'
+                          id=''
+                          type='text'
+                          value = {this.state.link}
+                          onChange={handleChange}
+                          placeholder='Location'
+                      />
+                    </div>
 
-                  <input
-                      id='Referrer'
-                      type='text'
-                      name = 'Referrer'
-                      onChange={this.saveReferrerInput}
-                      placeholder='Referrer'
-                  />
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Referrer</label>
+                      <input className='referrer'
+                          id='Referrer'
+                          type='text'
+                          name = 'Referrer'
+                          onChange={this.saveReferrerInput}
+                          placeholder='Referrer'
+                      />
+                    </div>
 
-                  <input
-                      type="text"
-                      id="LinkedIn"
-                      name="LinkedIn"
-                      onChange={this.saveLinkedInInput}
-                      placeholder='LinkedIn'
-                  />
+                    <div className='labelinput'>
+                      <label htmlFor='label'>LinkedIn</label>
+                      <input className='Linkedin'
+                          type="text"
+                          id="LinkedIn"
+                          name="LinkedIn"
+                          onChange={this.saveLinkedInInput}
+                          placeholder='LinkedIn'
+                      />
+                    </div>
 
-                  <textarea
-                      id='Notes'
-                      type='text'
-                      onChange={this.saveNotesInput}
-                      placeholder='Notes'
-                  />
-            </form>
-            <button onClick={this.addNewItem}>Save</button>
-          </div>
+                    <div className='labelinput'>
+                      <label htmlFor='label'>Notes</label>
+                      <textarea className='notes'
+                          id='Notes'
+                          type='text'
+                          onChange={this.saveNotesInput}
+                          placeholder='Notes'
+                      />
+                    </div>
+                    
+              </form>
+              <button onClick={this.addNewItem}>Save</button>
+              
+            </div>
+            
+          
 
       )
   }

@@ -19,8 +19,8 @@ class InterviewsContainer extends React.Component {
   render() {
     return (
       <div className="Container">
-        <h1>Your Interviews</h1>
-        <ul>
+        <h1 >Your Interviews</h1>
+        {/* <ul>
           <li>Company</li>
           <li>Position</li>
           <li>Status</li>
@@ -29,14 +29,20 @@ class InterviewsContainer extends React.Component {
           <li>Location</li>
           <li>Referrer</li>
           <li>LinkedIn</li>
-        </ul>
-        <InterviewExcelLine auth={this.props.auth} />
-        {this.state.inputList.map((input, index) => (
-          <InterviewExcelLine auth={this.props.auth} key={index} />
-        ))}
-        <button onClick={this.handleclick} className="addbutton">
-          +
-        </button>
+        </ul> */}
+        <div className='container2'>
+          <InterviewExcelLine auth={this.props.auth} />
+          {this.state.inputList.map((input, index) => (
+            <InterviewExcelLine auth={this.props.auth} key={index} />
+          ))}
+
+          <div className='addbuttoncontainer'>
+          <button onClick={this.handleclick} className="addbutton">
+            +
+          </button>
+        </div>
+
+        </div>
       </div>
     );
   }
