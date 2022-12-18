@@ -52,12 +52,12 @@ class InterviewExcelLine extends Component{
       const email = this.props.auth.user.attributes.email;
       console.log(this)
       axios.get(
-        'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
+        'https://1er3sfgrog.execute-api.us-east-1.amazonaws.com/finalproject-fetch/search',
         {
           params: {
-            'emailAddress': email
-          }
-          // headers: {'Access-Control-Allow-Origin': '*'},
+            'q': email
+          },
+          // headers: {'Access-Control-Allow-Origin': '*'}
         })
       // console.log(response)
       // this.setState({cmp: response.data.cmp})
