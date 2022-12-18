@@ -1,4 +1,4 @@
-import "./InterviewExcelLineStyle.css";
+import "./InterviewExcelLineStyle2.css";
 import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
