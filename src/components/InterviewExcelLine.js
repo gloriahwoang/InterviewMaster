@@ -3,12 +3,6 @@ import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import axios from 'axios';
-// import { useState } from "react";
-//import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway";
-
-// const apigClient = apigClientFactory.newClient();
-
-
 
 class InterviewExcelLine extends Component{
   
@@ -22,6 +16,7 @@ class InterviewExcelLine extends Component{
       date:[],
       link:[],
      };
+     this.handleChange = this.handleChange.bind(this);
   }
   saveReferrerInput = (e) => {
     this.setState({ inputReferrer: e.target.value });
@@ -45,38 +40,40 @@ class InterviewExcelLine extends Component{
         notes:notes,
         referrer:referrer
      });
-    //  console.log(this)
-  };
+  }
+  
+  handleChange =(e) => {
+    let newState = this.state;
+    newState.cmp = e.target.value;
+    this.setState(newState);
+  }
+
+  
 
   render(){
 
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
-      
+      console.log(this)
       axios.get(
         'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
         {
+          headers: {'Access-Control-Allow-Origin': '*'},
           params: {
             emailAddress: email
           }
         }
+        
         ).then((response) => {
-          // console.log(response.data.cmp)
           this.setState({ cmp: response.data.cmp });
           this.setState({ pos: response.data.pos });
           this.setState({ date: response.data.date });
           this.setState({ link: response.data.link });
-          // console.log(this.state.cmp)
         })
         .catch((error) => {
           console.error(error);
         });
-    }
-    // console.log(this.state.cmp)
-    // console.log(this.state)
-      function handleChange(){
-          console.log(this);
-      }
+    }    
 
     return(
           <div className='InterviewInformation'>
@@ -85,7 +82,6 @@ class InterviewExcelLine extends Component{
                       id='company'
                       type='text'
                       value = {this.state.cmp}
-                      // onChange={resoonseee.data.cmp}
                       onChange={this.handleChange}
                       placeholder='Company'
                   />
@@ -93,7 +89,7 @@ class InterviewExcelLine extends Component{
                       id='position'
                       type='text'
                       value = {this.state.pos}
-                      // onChange={handleChange}
+                      onChange={this.handleChange}
                       placeholder='Position'
                   /> 
 
@@ -120,7 +116,7 @@ class InterviewExcelLine extends Component{
                       id=''
                       type='text'
                       value = {this.state.date}
-                      onChange={handleChange}
+                      onChange={this.handleChange}
                       placeholder='Date'
                   />
 
@@ -128,7 +124,7 @@ class InterviewExcelLine extends Component{
                       id=''
                       type='text'
                       value = {this.state.link}
-                      onChange={handleChange}
+                      onChange={this.handleChange}
                       placeholder='Location'
                   />
 
