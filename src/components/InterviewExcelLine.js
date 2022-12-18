@@ -3,12 +3,6 @@ import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import axios from 'axios';
-// import { useState } from "react";
-//import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway";
-
-// const apigClient = apigClientFactory.newClient();
-
-
 
 class InterviewExcelLine extends Component{
   
@@ -22,6 +16,7 @@ class InterviewExcelLine extends Component{
       date:[],
       link:[],
      };
+     this.handleChange = this.handleChange.bind(this);
   }
   saveReferrerInput = (e) => {
     this.setState({ inputReferrer: e.target.value });
@@ -48,66 +43,48 @@ class InterviewExcelLine extends Component{
     //  console.log(this)
   };
 
-  handleclick = () => {
-    const inputList = this.state.inputList;
-    this.setState({
-      inputList: inputList.concat(<InterviewExcelLine auth={this.props.auth} />)
-    });
-  };
-
   render(){
 
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
-      
+      console.log(this)
       axios.get(
         'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
         {
           params: {
-            emailAddress: email
+            'emailAddress': email
           }
-        }
-        ).then((response) => {
-          // console.log(response.data.cmp)
-          this.setState({ cmp: response.data.cmp });
-          this.setState({ pos: response.data.pos });
-          this.setState({ date: response.data.date });
-          this.setState({ link: response.data.link });
-          // console.log(this.state.cmp)
+          // headers: {'Access-Control-Allow-Origin': '*'},
         })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    // console.log(this.state.cmp)
-    // console.log(this.state)
-      function handleChange(){
-          console.log(this);
-      }
+      // console.log(response)
+      // this.setState({cmp: response.data.cmp})
+      
+        // .then((response) => {
+        //   this.setState({ cmp: response.data.cmp });
+        //   this.setState({ pos: response.data.pos });
+        //   this.setState({ date: response.data.date });
+        //   this.setState({ link: response.data.link });
+        // })
+    }    
 
     return(
-          
-            <div className='InterviewInformation'>
-                <form>
-                    <input className='company'
-                        id='company'
-                        type='text'
-                        value = {this.state.cmp}
-                        // onChange={resoonseee.data.cmp}
-                        onChange={this.handleChange}
-                        placeholder='Company'
-                    />
-
-                    <div className='labelinput'>
-                      <label htmlFor='label'>Position</label>
-                      <input className='position'
-                          id='position'
-                          type='text'
-                          value = {this.state.pos}
-                          // onChange={handleChange}
-                          placeholder='Position'
-                      />
-                    </div>
+          <div className='InterviewInformation'>
+              <form>
+                  <input className='company'
+                      id='company'
+                      type='text'
+                      value = {this.state.cmp}
+                      // onChange={resoonseee.data.cmp}
+                      onChange={this.handleChange}
+                      placeholder='Company'
+                  />
+                  <input className='position'
+                      id='position'
+                      type='text'
+                      value = {this.state.pos}
+                      // onChange={handleChange}
+                      placeholder='Position'
+                  /> 
 
                     <div className='labelinput'>
                       <label htmlFor='label'>Status</label>
@@ -133,27 +110,21 @@ class InterviewExcelLine extends Component{
                       </select>
                     </div>
 
-                    <div className='labelinput'>
-                      <label htmlFor='label'>Date</label>
-                      <input className='Date'
-                          id=''
-                          type='text'
-                          value = {this.state.date}
-                          onChange={handleChange}
-                          placeholder='Date'
-                      />
-                    </div>
+                  <input
+                      id=''
+                      type='text'
+                      value = {this.state.date}
+                      onChange={handleChange}
+                      placeholder='Date'
+                  />
 
-                    <div className='labelinput'>
-                      <label htmlFor='label'>Location</label>
-                      <input className='location'
-                          id=''
-                          type='text'
-                          value = {this.state.link}
-                          onChange={handleChange}
-                          placeholder='Location'
-                      />
-                    </div>
+                  <input
+                      id=''
+                      type='text'
+                      value = {this.state.link}
+                      onChange={handleChange}
+                      placeholder='Location'
+                  />
 
                     <div className='labelinput'>
                       <label htmlFor='label'>Referrer</label>
