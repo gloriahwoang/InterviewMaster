@@ -1,4 +1,4 @@
-import "./InterviewExcelLineStyle.css";
+import "./InterviewExcelLineStyle2.css";
 import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
@@ -23,27 +23,27 @@ class InterviewExcelLine extends Component{
   };
   
   
-  // update(property) {
-  //   return (e) =>
-  //     this.setState({
-  //        [property]: e.target.value,
-  //     });
-  // };
+  update(property) {
+    return (e) =>
+      this.setState({
+         [property]: e.target.value,
+      });
+  };
 
-  // handleSave(e) {
-  //   e.preventDefault();
-  //   // let excel = {
-  //   //   company: this.state.company,
-  //   //   position: this.state.position,
-  //   //   status: this.state.status,
-  //   //   referral: this.state.referral,
-  //   //   date: this.state.date,
-  //   //   location: this.state.location,
-  //   //   referrer: this.state.referrer,
-  //   //   linkedin: this.state.linkedin,
-  //   //   notes: this.state.notes
-  //   // };
-  // }
+  handleSave(e) {
+    e.preventDefault();
+    // let excel = {
+    //   company: this.state.company,
+    //   position: this.state.position,
+    //   status: this.state.status,
+    //   referral: this.state.referral,
+    //   date: this.state.date,
+    //   location: this.state.location,
+    //   referrer: this.state.referrer,
+    //   linkedin: this.state.linkedin,
+    //   notes: this.state.notes
+    // };
+  }
 
 
   render(){
@@ -51,7 +51,7 @@ class InterviewExcelLine extends Component{
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
       console.log(this)
-      axios.get(
+      const respon = axios.get(
         'https://1er3sfgrog.execute-api.us-east-1.amazonaws.com/finalproject-fetch/search',
         {
           params: {
@@ -59,6 +59,7 @@ class InterviewExcelLine extends Component{
           },
           // headers: {'Access-Control-Allow-Origin': '*'}
         })
+      console.log(respon)
       // console.log(response)
       // this.setState({cmp: response.data.cmp})
       
