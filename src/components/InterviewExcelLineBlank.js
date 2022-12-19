@@ -87,6 +87,7 @@ class InterviewExcelLineBlank extends Component{
                   <div className='labelinput'>
                     <label htmlFor='label'>Status</label>
                     <select className="Status" value={this.state.status} onChange={this.update("status")}>
+                        <option value='None'>None</option>
                         <option value='Submitted'>Submitted</option>
                         <option value='PhoneCall'>Phone Call</option>
                         <option value='1stRound'>1st Round</option>

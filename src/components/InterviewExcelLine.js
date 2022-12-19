@@ -19,7 +19,7 @@ class InterviewExcelLine extends Component{
       date: [],
       location: [],
       referrer: [],
-      link: [],
+      linkedin: [],
       notes: [],
     };
     this.handleSave = this.handleSave.bind(this);
@@ -41,17 +41,17 @@ class InterviewExcelLine extends Component{
         .then((response) => {
           console.log('response.data:',response.data);
           this.setState({
-            cmp: response.data.cmp,
-            pos: response.data.pos,
-            status: response.data.status,
-            referral: response.data.referral,
-            date: response.data.date,
-            location: response.data.location,
-            referrer: response.data.referrer,
-            link: response.data.link,
-            notes: response.data.notes,
-            time: response.data.insertedAtTimestamp,
-            email: response.data.useremail});
+            cmp: response.data[0].cmp,
+            pos: response.data[0].pos,
+            status: response.data[0].status,
+            referral: response.data[0].referral,
+            date: response.data[0].date,
+            location: response.data[0].location,
+            referrer: response.data[0].referrer,
+            linkedin: response.data[0].linkedin,
+            notes: response.data[0].notes,
+            time: response.data[0].insertedAtTimestamp,
+            email: response.data[0].useremail});
         })
     }    
   };
@@ -83,7 +83,7 @@ class InterviewExcelLine extends Component{
               date: this.state.date,
               location: this.state.location,
               referrer: this.state.referrer,
-              link: this.state.link,
+              linkedin: this.state.linkedin,
               notes: this.state.notes,
               insertedAtTimestamp: this.state.time,
               useremail: this.state.email,
@@ -122,6 +122,7 @@ class InterviewExcelLine extends Component{
                   <div className='labelinput'>
                     <label htmlFor='label'>Status</label>
                     <select className="Status" value={this.state.status} onChange={this.update("status")}>
+                        <option value='None'>None</option>
                         <option value='Submitted'>Submitted</option>
                         <option value='PhoneCall'>Phone Call</option>
                         <option value='1stRound'>1st Round</option>
@@ -183,8 +184,8 @@ class InterviewExcelLine extends Component{
                     <input className='Linkedin'
                         type="text"
                         id="LinkedIn"
-                        value={this.state.link}
-                        onChange={this.update("link")}
+                        value={this.state.linkedin}
+                        onChange={this.update("linkedin")}
                         placeholder='LinkedIn'
                     />
                   </div>
