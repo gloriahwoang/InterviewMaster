@@ -1,6 +1,7 @@
 import "./InterviewsContainerStyles.css";
 import InterviewExcelLine from "../components/InterviewExcelLine";
 import React from 'react';
+import InterviewExcelLineBlank from "./InterviewExcelLineBlank";
 
 class InterviewsContainer extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class InterviewsContainer extends React.Component {
   handleclick = () => {
     const inputList = this.state.inputList;
     this.setState({
-      inputList: inputList.concat(<InterviewExcelLine auth={this.props.auth} />)
+      inputList: inputList.concat(<InterviewExcelLineBlank auth={this.props.auth} />)
     });
   };
 
@@ -33,7 +34,7 @@ class InterviewsContainer extends React.Component {
         <div className='container2'>
           <InterviewExcelLine auth={this.props.auth} />
           {this.state.inputList.map((input, index) => (
-            <InterviewExcelLine auth={this.props.auth} key={index} />
+            <InterviewExcelLineBlank auth={this.props.auth} key={index} />
           ))}
 
           <div className='addbuttoncontainer'>
