@@ -3,28 +3,35 @@ import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
 import axios from 'axios';
-import { response } from "express";
+// import { response } from "express";
 
 class InterviewExcelLine extends Component{
   
+  _isMounted = false;
+
   constructor(props) {
     super(props);
-    // this.state = {
-    //   cmp: [],
-    //   pos: [],
-    //   status: [],
-    //   referral: [],
-    //   date: [],
-    //   location: [],
-    //   referrer: [],
-    //   link: [],
-    //   notes: [],
-    // };
+    this.state = {
+      cmp: [],
+      pos: [],
+      status: [],
+      referral: [],
+      date: [],
+      location: [],
+      referrer: [],
+      link: [],
+      notes: [],
+    };
+    this.handleSave = this.handleSave.bind(this);
+  };
+  
+  componentDidMount() { 
+    this._isMounted = true;
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
       console.log(this)
       axios.get(
-        'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/login',
+        'https://1er3sfgrog.execute-api.us-east-1.amazonaws.com/finalproject-fetch/search',
         {
           params: {
             'q': email
@@ -32,7 +39,8 @@ class InterviewExcelLine extends Component{
           // headers: {'Access-Control-Allow-Origin': '*'},
         }) 
         .then((response) => {
-          this.state = {
+          console.log(response.data);
+          this.setState({
             cmp: response.data.cmp,
             pos: response.data.pos,
             status: response.data.status,
@@ -43,13 +51,14 @@ class InterviewExcelLine extends Component{
             link: response.data.link,
             notes: response.data.notes,
             time: response.data.insertedAtTimestamp,
-            email: response.data.useremail,
-          }
+            email: response.data.useremail});
         })
     }    
-    this.handleSave = this.handleSave.bind(this);
   };
-  
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  };
   
   update(property) {
     return (e) =>
@@ -85,7 +94,9 @@ class InterviewExcelLine extends Component{
   }
 
 
-  render(){
+
+  render() {
+    console.log("state", this.state);
     return(
           <div className='InterviewInformation'>
               <form>
@@ -136,7 +147,7 @@ class InterviewExcelLine extends Component{
                     <label htmlFor='label'>Date</label>
                     <input className='Date'
                         id=''
-                        type='date'
+                        type='text'
                         value={this.state.date}
                         onChange={this.update("date")}
                         placeholder='Date'
