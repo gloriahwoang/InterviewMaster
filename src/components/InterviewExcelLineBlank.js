@@ -8,7 +8,9 @@ import axios from 'axios';
 class InterviewExcelLineBlank extends Component{
   
   constructor(props) {
+    
     super(props);
+    console.log(this)
     this.state = {
       cmp: [],
       pos: [],
@@ -17,8 +19,10 @@ class InterviewExcelLineBlank extends Component{
       date: [],
       location: [],
       referrer: [],
-      link: [],
+      linkedin: [],
       notes: [],
+      time: '',
+      email: this.props.auth.user.attributes.email
     };
     this.handleSave = this.handleSave.bind(this);
   };
@@ -48,7 +52,7 @@ class InterviewExcelLineBlank extends Component{
               date: this.state.date,
               location: this.state.location,
               referrer: this.state.referrer,
-              link: this.state.link,
+              linkedin: this.state.linkedin,
               notes: this.state.notes,
               insertedAtTimestamp: this.state.time,
               useremail: this.state.email,
@@ -149,8 +153,8 @@ class InterviewExcelLineBlank extends Component{
                     <input className='Linkedin'
                         type="text"
                         id="LinkedIn"
-                        value={this.state.link}
-                        onChange={this.update("link")}
+                        value={this.state.linkedin}
+                        onChange={this.update("linkedin")}
                         placeholder='LinkedIn'
                     />
                   </div>
