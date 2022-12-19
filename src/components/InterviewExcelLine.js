@@ -1,4 +1,4 @@
-import "./InterviewExcelLineStyle2.css";
+import "./InterviewExcelLineStyle.css";
 import React from 'react'
 import { Component } from 'react';
 import { Auth } from 'aws-amplify';
@@ -203,7 +203,7 @@ class InterviewExcelLine extends Component{
               </form>
               <button onClick={this.handleSave}>Save</button>
               
-            </div>
+          </div>
             
           
 
