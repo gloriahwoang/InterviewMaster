@@ -39,7 +39,7 @@ class InterviewExcelLine extends Component{
           // headers: {'Access-Control-Allow-Origin': '*'},
         }) 
         .then((response) => {
-          console.log(response.data);
+          console.log('response.data:',response.data);
           this.setState({
             cmp: response.data.cmp,
             pos: response.data.pos,
