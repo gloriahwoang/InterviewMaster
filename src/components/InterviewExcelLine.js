@@ -8,19 +8,18 @@ import axios from 'axios';
 class InterviewExcelLine extends Component{
   
   _isMounted = false;
-
   constructor(props) {
     super(props);
     this.state = {
-      cmp: [],
-      pos: [],
-      status: [],
-      referral: [],
-      date: [],
-      location: [],
-      referrer: [],
-      linkedin: [],
-      notes: [],
+      // cmp: [],
+      // pos: [],
+      // status: [],
+      // referral: [],
+      // date: [],
+      // location: [],
+      // referrer: [],
+      // linkedin: [],
+      // notes: [],
     };
     this.handleSave = this.handleSave.bind(this);
   };
@@ -29,7 +28,7 @@ class InterviewExcelLine extends Component{
     this._isMounted = true;
     if (this.props.auth.setAuthStatus) {
       const email = this.props.auth.user.attributes.email;
-      console.log(this)
+      // console.log(this)
       axios.get(
         'https://1er3sfgrog.execute-api.us-east-1.amazonaws.com/finalproject-fetch/search',
         {
@@ -39,19 +38,21 @@ class InterviewExcelLine extends Component{
           // headers: {'Access-Control-Allow-Origin': '*'},
         }) 
         .then((response) => {
-          console.log('response.data:',response.data);
+          // console.log('response.data:',response.data);
           this.setState({
-            cmp: response.data[0].cmp,
-            pos: response.data[0].pos,
-            status: response.data[0].status,
-            referral: response.data[0].referral,
-            date: response.data[0].date,
-            location: response.data[0].location,
-            referrer: response.data[0].referrer,
-            linkedin: response.data[0].linkedin,
-            notes: response.data[0].notes,
-            time: response.data[0].insertedAtTimestamp,
-            email: response.data[0].useremail});
+            data: response.data,
+            // cmp: response.data[0].cmp,
+            // pos: response.data[0].pos,
+            // status: response.data[0].status,
+            // referral: response.data[0].referral,
+            // date: response.data[0].date,
+            // location: response.data[0].location,
+            // referrer: response.data[0].referrer,
+            // linkedin: response.data[0].linkedin,
+            // notes: response.data[0].notes,
+            // time: response.data[0].insertedAtTimestamp,
+            // email: response.data[0].useremail
+          });
         })
     }    
   };
@@ -70,7 +71,7 @@ class InterviewExcelLine extends Component{
   handleSave(e) {
     e.preventDefault();
     if (this.props.auth.setAuthStatus) {
-      console.log("handlesave,this", this)
+      // console.log("handlesave,this", this)
       axios.put(
         'https://4j9xoqe241.execute-api.us-east-1.amazonaws.com/finalproject/update',
         {
