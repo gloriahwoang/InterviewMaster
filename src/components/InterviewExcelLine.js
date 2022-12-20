@@ -18,7 +18,7 @@ class InterviewExcelLine extends Component{
       date: this.props.date,
       location: this.props.location,
       referrer: this.props.referrer,
-      link: this.props.link,
+      linkedin: this.props.linkedin,
       notes: this.props.notes,
       time: this.props.insertedAtTimestamp,
       email: this.props.useremail
