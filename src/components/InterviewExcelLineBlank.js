@@ -19,6 +19,7 @@ class InterviewExcelLineBlank extends Component{
       referrer: [],
       link: [],
       notes: [],
+      email : this.props.auth.user.attributes.email
     };
     this.handleSave = this.handleSave.bind(this);
   };

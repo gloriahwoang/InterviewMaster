@@ -12,53 +12,55 @@ class InterviewExcelLine extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      cmp: [],
-      pos: [],
-      status: [],
-      referral: [],
-      date: [],
-      location: [],
-      referrer: [],
-      link: [],
-      notes: [],
+      cmp: this.props.cmp,
+      pos: this.props.pos,
+      status: this.props.status,
+      referral: this.props.referral,
+      date: this.props.date,
+      location: this.props.location,
+      referrer: this.props.referrer,
+      link: this.props.link,
+      notes: this.props.notes,
+      time: this.props.insertedAtTimestamp,
+      email: this.props.useremail
     };
     this.handleSave = this.handleSave.bind(this);
   };
   
-  componentDidMount() { 
-    this._isMounted = true;
-    if (this.props.auth.setAuthStatus) {
-      const email = this.props.auth.user.attributes.email;
-      console.log(this)
-      axios.get(
-        'https://1er3sfgrog.execute-api.us-east-1.amazonaws.com/finalproject-fetch/search',
-        {
-          params: {
-            'q': email
-          }
-          // headers: {'Access-Control-Allow-Origin': '*'},
-        }) 
-        .then((response) => {
-          console.log(response.data);
-          this.setState({
-            cmp: response.data.cmp,
-            pos: response.data.pos,
-            status: response.data.status,
-            referral: response.data.referral,
-            date: response.data.date,
-            location: response.data.location,
-            referrer: response.data.referrer,
-            link: response.data.link,
-            notes: response.data.notes,
-            time: response.data.insertedAtTimestamp,
-            email: response.data.useremail});
-        })
-    }    
-  };
+  // componentDidMount() { 
+  //   this._isMounted = true;
+  //   if (this.props.auth.setAuthStatus) {
+  //     const email = this.props.auth.user.attributes.email;
+  //     console.log(this)
+  //     axios.get(
+  //       'https://1er3sfgrog.execute-api.us-east-1.amazonaws.com/finalproject-fetch/search',
+  //       {
+  //         params: {
+  //           'q': email
+  //         }
+  //         // headers: {'Access-Control-Allow-Origin': '*'},
+  //       }) 
+  //       .then((response) => {
+  //         console.log(response.data);
+  //         this.setState({
+  //           cmp: response.data.cmp,
+  //           pos: response.data.pos,
+  //           status: response.data.status,
+  //           referral: response.data.referral,
+  //           date: response.data.date,
+  //           location: response.data.location,
+  //           referrer: response.data.referrer,
+  //           link: response.data.link,
+  //           notes: response.data.notes,
+  //           time: response.data.insertedAtTimestamp,
+  //           email: response.data.useremail});
+  //       })
+  //   }    
+  // };
 
-  componentWillUnmount() {
-    this._isMounted = false;
-  };
+  // componentWillUnmount() {
+  //   this._isMounted = false;
+  // };
   
   update(property) {
     return (e) =>
