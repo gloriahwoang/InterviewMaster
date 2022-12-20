@@ -120,7 +120,7 @@ class InterviewExcelLineBlank extends Component{
                         type='text'
                         value={this.state.date}
                         onChange={this.update("date")}
-                        placeholder='Date'
+                        placeholder='Format 27 10 2022'
                     />
                   </div>
 
