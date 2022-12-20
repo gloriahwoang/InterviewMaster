@@ -42,7 +42,7 @@ class InterviewsContainer extends React.Component {
                     response.data.map((item,index) => {
                         this.setState({
                             excelList: this.state.excelList.concat(<InterviewExcelLine auth={this.props.auth} cmp={item.cmp} pos={item.pos}
-                                status={item.status} referral={item.referral} date={item.date} location={item.location} key={index}
+                                status={item.status} referral={item.referral} referrer={item.referrer} location={item.location} key={index}
                                 insertedAtTimestamp={item.insertedAtTimestamp} useremail={item.useremail} />)
                             
                         })
